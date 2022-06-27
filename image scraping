@@ -1,0 +1,21 @@
+import requests
+from bs4 import BeautifulSoup 
+import os
+    
+url = "https://www.thehindu.com/business/Economy/excise-duty-on-petro-products-sharable-with-states-has-not-been-touched-says-nirmala-sitharaman/article65446690.ece?homepage=true"
+r= requests.get(url)
+soup = BeautifulSoup(r.text,'html.parser')
+images_tag = soup.find('source')
+images_tag['srcset']
+im_url=images_tag ['srcset']
+im=requests.get('https://www.thehindu.com/incoming/ulwnn3/article65446975.ece/alternates/FREE_1200/PTI05_21_2022_000204B.jpg')
+with open('PTI05_21_2022_000204B.jpg','wb') as file:
+        for chunk in image.iter_content(chunk_size=1024):
+            name=image['alt']
+            file.write(chunk)
+r= requests.get(url)
+soup = BeautifulSoup(r.text,'html.parser')
+print(soup.prettify())
+with open(name.replace(' ','-').replace('/','')+'jpg','wb')as f:
+    im = requests.get(Link)
+    f.write(im.content)           
