@@ -1,0 +1,14 @@
+from bs4 import BeautifulSoup as bs
+import requests
+
+my_url = "https://www.youtube.com/c/2mtv/videos"
+
+r = requests.get(my_url)
+page = r.text
+soup=bs(page,'html.parser')
+res=soup.find_all("div",{
+    "id": "dismissable",
+    "class": ["style-scope", "ytd-grid-video-renderer"]
+})
+
+print(res)
